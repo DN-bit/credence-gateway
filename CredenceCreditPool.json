@@ -1,0 +1,85 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        { "internalType": "address", "name": "_usdc", "type": "address" },
+        { "internalType": "address", "name": "_gateway", "type": "address" }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        { "internalType": "bytes32", "name": "agentId", "type": "bytes32" },
+        { "internalType": "uint8", "name": "tier", "type": "uint8" },
+        { "internalType": "uint256", "name": "creditLimit", "type": "uint256" },
+        { "internalType": "bytes", "name": "attestation", "type": "bytes" }
+      ],
+      "name": "registerAgent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "borrower", "type": "address" },
+        { "internalType": "uint256", "name": "amount", "type": "uint256" },
+        { "internalType": "uint256", "name": "durationDays", "type": "uint256" }
+      ],
+      "name": "issueLoan",
+      "outputs": [{ "internalType": "uint256", "name": "loanId", "type": "uint256" }],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "loanId", "type": "uint256" }
+      ],
+      "name": "repayLoan",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "bytes32", "name": "agentId", "type": "bytes32" }
+      ],
+      "name": "getAgentInfo",
+      "outputs": [
+        { "internalType": "uint8", "name": "tier", "type": "uint8" },
+        { "internalType": "uint256", "name": "creditLimit", "type": "uint256" },
+        { "internalType": "uint256", "name": "creditUsed", "type": "uint256" },
+        { "internalType": "uint256", "name": "score", "type": "uint256" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakeGateway",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "bytes32", "name": "agentId", "type": "bytes32" },
+        { "indexed": false, "internalType": "uint8", "name": "tier", "type": "uint8" },
+        { "indexed": false, "internalType": "uint256", "name": "creditLimit", "type": "uint256" }
+      ],
+      "name": "AgentVerified",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "loanId", "type": "uint256" },
+        { "indexed": true, "internalType": "address", "name": "borrower", "type": "address" },
+        { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+      ],
+      "name": "LoanIssued",
+      "type": "event"
+    }
+  ]
+}
